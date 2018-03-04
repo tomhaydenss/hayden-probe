@@ -4,6 +4,7 @@ RSpec.describe Hayden::Probe::Core::MoveEvaluator do
 
     let(:coordinate) { build(:coordinate) }
     let(:direction) { build(:direction) }
+    let(:move) { :m }
     let(:probe) { Hayden::Probe::Core::Probe.new(coordinate, direction) }
 
     subject { DummyEvaluator.new.eval(probe, move) }
@@ -55,6 +56,35 @@ RSpec.describe Hayden::Probe::Core::MoveEvaluator do
       let(:move) { :r }
       it { expect(subject.direction).to eq(:n) }
     end
+
+    context 'when a probe direction is North and move Forward' do
+      let(:direction) { :n }
+      it { expect(subject.direction).to eq(direction) }
+      it { expect(subject.coordinate.x).to eq(coordinate.x) }
+      it { expect(subject.coordinate.y).to eq(coordinate.y + 1) }
+    end
+
+    context 'when a probe direction is South and move Forward' do
+      let(:direction) { :s }
+      it { expect(subject.direction).to eq(direction) }
+      it { expect(subject.coordinate.x).to eq(coordinate.x) }
+      it { expect(subject.coordinate.y).to eq(coordinate.y - 1) }
+    end
+
+    context 'when a probe direction is East and move Forward' do
+      let(:direction) { :e }
+      it { expect(subject.direction).to eq(direction) }
+      it { expect(subject.coordinate.x).to eq(coordinate.x + 1) }
+      it { expect(subject.coordinate.y).to eq(coordinate.y) }
+    end
+
+    context 'when a probe direction is Weast and move Forward' do
+      let(:direction) { :w }
+      it { expect(subject.direction).to eq(direction) }
+      it { expect(subject.coordinate.x).to eq(coordinate.x - 1) }
+      it { expect(subject.coordinate.y).to eq(coordinate.y) }
+    end
+
   end
 
 end

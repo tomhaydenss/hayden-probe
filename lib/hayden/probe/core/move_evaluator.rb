@@ -28,7 +28,19 @@ module Hayden
         end
 
         def move(probe)
-
+          coordinate = Coordinate.new(probe.coordinate.x, probe.coordinate.y)
+          case probe.direction
+            when :n
+              coordinate.y = coordinate.y + 1
+            when :s
+              coordinate.y = coordinate.y - 1
+            when :e
+              coordinate.x = coordinate.x + 1
+            else
+              coordinate.x = coordinate.x - 1
+          end
+          probe.coordinate = coordinate
+          probe
         end
       end
     end
