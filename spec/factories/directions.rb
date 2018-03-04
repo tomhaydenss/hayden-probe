@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :direction, class: String do
-    initialize_with { %w[N S E W].sample }
+  factory :direction, class: Symbol do
+    initialize_with { %i[n s e w].sample }
   end
-
 end

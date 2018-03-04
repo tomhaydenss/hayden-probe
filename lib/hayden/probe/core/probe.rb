@@ -3,7 +3,7 @@ module Hayden
     module Core
       class Probe
 
-        ALLOWED_DIRECTIONS = %w[N S E W].freeze
+        ALLOWED_DIRECTIONS = %i[n s e w].freeze
 
         attr_accessor :coordinate, :direction
 
