@@ -1,5 +1,7 @@
-require "bundler/setup"
-require "hayden/probe"
+require 'bundler/setup'
+require 'hayden/probe'
+require 'factory_bot'
+require 'support/factory_bot'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
