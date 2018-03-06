@@ -20,7 +20,7 @@ module Hayden
       private
 
       def type_probe_informations
-        say('Please, inform the probe positions and direction')
+        say('Please, inform the probe\'s positions and direction')
         x = ask('Coordinate X:')
         y = ask('Coordinate Y:')
         direction = ask('Direction (N/S/E/W):')
@@ -29,11 +29,11 @@ module Hayden
         say('Please, inform the sequence of movements that the probe should do')
         say('Ex: If you wish the probe to turn Left, Move forward, turn Left again, Move forward twice')
         say('You should type the following sequence: LMLMM')
-        say('Movements alloweds: M = Move forward, L = Turn Left, R = Turn Right')
+        say('Movements alloweds are M = Move forward, L = Turn Left and R = Turn Right')
         move_list = ask('Movements sequence:').split('').map(&:to_s).map(&:downcase).map(&:to_sym)
 
         result = @surface.add_probe(probe, move_list)
-        say(result.to_str)
+        say("Result: #{result.to_str}")
       end
 
       def should_continue_or_quit
