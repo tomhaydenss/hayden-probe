@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tomhaydenss@gmail.com"]
 
   spec.summary       = "Hayden Probe"
-  spec.description   = "A ruby solution that allow Mars exploration by probes"
+  spec.description   = "A ruby solution that helps NASA to explore Mars\'s surfaces by probes"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "factory_bot", "~> 4.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_runtime_dependency "thor"
 end

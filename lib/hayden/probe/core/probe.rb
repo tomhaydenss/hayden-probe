@@ -14,6 +14,10 @@ module Hayden
           @direction = direction
         end
 
+        def to_str
+          "#{coordinate.x} #{coordinate.y} #{direction.to_s.upcase}"
+        end
+
       end
     end
   end
