@@ -16,7 +16,7 @@ RSpec.describe Hayden::Probe::Core::Probe do
     context 'when incorrect information are given' do
       let(:direction) { :a }
 
-      it { expect { probe }.to raise_error(ArgumentError) }
+      it { expect { probe }.to raise_error(Hayden::Probe::Core::InvalidInputData) }
     end
   end
 

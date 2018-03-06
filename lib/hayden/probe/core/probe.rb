@@ -8,7 +8,7 @@ module Hayden
         attr_accessor :coordinate, :direction
 
         def initialize(coordinate, direction)
-          raise ArgumentError.new('Invalid information for direction.') unless ALLOWED_DIRECTIONS.include? direction
+          raise Hayden::Probe::Core::InvalidInputData.new('Invalid information for direction.') unless ALLOWED_DIRECTIONS.include? direction
 
           @coordinate = coordinate
           @direction = direction

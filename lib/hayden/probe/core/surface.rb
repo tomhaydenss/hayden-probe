@@ -29,7 +29,7 @@ module Hayden
 
         # this rule was not specified, so it's an assumption
         def validate_coordinate(coordinate)
-          raise ArgumentError.new('Invalid information for upper right coordinate.') unless coordinate_valid? coordinate
+          raise Hayden::Probe::Core::InvalidInputData.new('Invalid information for upper right coordinate.') unless coordinate_valid? coordinate
         end
 
         def coordinate_valid?(coordinate)
@@ -38,7 +38,7 @@ module Hayden
 
         def validate_move_list(move_list)
           result = move_list.uniq.reject { |move| ALLOWED_MOVES.include? move }
-          raise ArgumentError.new('Invalid information for upper right coordinate.') unless result.empty?
+          raise Hayden::Probe::Core::InvalidInputData.new('Invalid information for move list.') unless result.empty?
         end
 
         def perform_prove_movement(probe, move_list)
@@ -49,7 +49,7 @@ module Hayden
 
         def validate_turn(probe)
           if probe.coordinate.x < 0 || probe.coordinate.y < 0 || probe.coordinate.x > upper_right_coordinate.x || probe.coordinate.y > upper_right_coordinate.y
-            raise ArgumentError.new('It will result in an invalid position.')
+            raise Hayden::Probe::Core::BusinessError.new('It will result in an invalid position.')
           end
           probe
         end

@@ -15,7 +15,7 @@ RSpec.describe Hayden::Probe::Core::Surface do
     context 'when incorrect information are given' do
       let(:upper_right_coordinate) { build(:invalid_coordinate_for_surface) }
 
-      it { expect { surface }.to raise_error(ArgumentError) }
+      it { expect { surface }.to raise_error(Hayden::Probe::Core::InvalidInputData) }
     end
   end
 
