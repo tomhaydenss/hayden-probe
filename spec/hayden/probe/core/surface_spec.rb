@@ -8,8 +8,9 @@ RSpec.describe Hayden::Probe::Core::Surface do
       let(:upper_right_coordinate) { build(:valid_coordinate_for_surface) }
 
       it { expect(surface).not_to be nil }
-      it { expect(surface.matrix.size).to eq(upper_right_coordinate.y) }
-      it { expect(surface.matrix.first.size).to eq(upper_right_coordinate.x) }
+      it { expect(surface).to be_a(Hayden::Probe::Core::Surface) }
+      it { expect(surface.upper_right_coordinate.x).to eq(upper_right_coordinate.x) }
+      it { expect(surface.upper_right_coordinate.y).to eq(upper_right_coordinate.y) }
     end
 
     context 'when incorrect information are given' do
@@ -45,6 +46,15 @@ RSpec.describe Hayden::Probe::Core::Surface do
       it { expect(result.coordinate.x).to eq(5) }
       it { expect(result.coordinate.y).to eq(1) }
       it { expect(result.direction).to eq(:e) }
+    end
+
+    context 'when a movement results in an wrong place' do
+      let(:coordinate) { upper_right_coordinate }
+      let(:position) { build(:north) }
+      let(:probe) { Hayden::Probe::Core::Probe.new(coordinate, position) }
+      let(:move_list) { %i[m] }
+
+      it { expect { result }.to raise_error(Hayden::Probe::Core::BusinessError) }
     end
   end
 

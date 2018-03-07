@@ -15,6 +15,8 @@ module Hayden
         type_probe_informations
 
         should_continue_or_quit
+      rescue StandardError => e
+        say(e.message)
       end
 
       private
