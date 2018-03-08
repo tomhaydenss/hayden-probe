@@ -6,11 +6,11 @@ module Hayden
     class CLI < Thor
       option :x, type: :numeric, required: true
       option :y, type: :numeric, required: true
-      desc 'surface', 'Creates a surface with X columns and Y lines'
+      desc 'surface', 'Creates a surface with X columns and Y rows'
       def surface
         upper_right_coordinate = Hayden::Probe::Core::Coordinate.new(options[:x], options[:y])
         @surface = Hayden::Probe::Core::Surface.new(upper_right_coordinate)
-        say("A surface with #{options[:x]} rows and #{options[:y]} lines has been created")
+        say("A surface with #{options[:x]} columns and #{options[:y]} rows has been created")
 
         type_probe_informations
 

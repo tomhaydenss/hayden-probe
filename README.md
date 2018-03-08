@@ -26,7 +26,7 @@ You should start this application by creating a surface that will be explored by
 
     $ bundle exec bin/hayden-probe surface -x=5 -y=5
     
-    A surface with 5 rows and 5 lines has been created
+    A surface with 5 columns and 5 rows has been created
     
 The next step is to inform the probe's position represented by coordinates X and Y and also by direction that means for which side the probe is facing to (north, south, east or weast). 
 
