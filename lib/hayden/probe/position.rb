@@ -1,29 +1,31 @@
 module Hayden
   module Probe
     class Position
-      def initialize(axis_x = 0, axis_y = 0)
-        @axis_x = axis_x
-        @axis_y = axis_y
+      attr_writer :x_axis, :y_axis
+
+      def initialize(x_axis = 0, y_axis = 0)
+        @x_axis = x_axis
+        @y_axis = y_axis
       end
 
       def x
-        @axis_x
+        @x_axis
       end
 
       def y
-        @axis_y
+        @y_axis
       end
 
       def next(direction)
         case direction
         when :n
-          @axis_y += 1
+          @y_axis += 1
         when :s
-          @axis_y -= 1
+          @y_axis -= 1
         when :e
-          @axis_x += 1
+          @x_axis += 1
         when :w
-          @axis_x -= 1
+          @x_axis -= 1
         end
       end
 

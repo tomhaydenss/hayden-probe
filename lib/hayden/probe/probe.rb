@@ -3,7 +3,7 @@ require 'securerandom'
 module Hayden
   module Probe
     class Probe
-      attr_reader :id, :position, :direction
+      attr_accessor :id, :position, :direction
 
       def initialize(x_axis = 0, y_axis = 0, direction = :n)
         @id = SecureRandom.alphanumeric

@@ -9,7 +9,7 @@ module Hayden
       }.freeze
       private_constant :ALLOWED_DIRECTIONS
 
-      attr_reader :current
+      attr_accessor :current
 
       def initialize(direction = :n)
         raise Hayden::Probe::Errors::InvalidInputData, 'Invalid direction' unless valid_direction? direction
