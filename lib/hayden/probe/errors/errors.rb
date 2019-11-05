@@ -1,6 +1,6 @@
 module Hayden
   module Probe
-    module Core
+    module Errors
       class HaydenProbeError < StandardError
       end
       class InvalidInputData < HaydenProbeError

@@ -4,7 +4,11 @@ Dir[File.expand_path('../probe/*.rb', __FILE__)].map do |path|
   require path
 end
 
-Dir[File.expand_path('../probe/core/*.rb', __FILE__)].map do |path|
+Dir[File.expand_path('../probe/errors/*.rb', __FILE__)].map do |path|
+  require path
+end
+
+Dir[File.expand_path('../probe/moves/*.rb', __FILE__)].map do |path|
   require path
 end
 
